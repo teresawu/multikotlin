@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Margins -->
+    <dimen name="margin_0_5">4dp</dimen>
+    <dimen name="margin_1">8dp</dimen>
+    <dimen name="margin_1_5">12dp</dimen>
+    <dimen name="margin_2">16dp</dimen>
+    <dimen name="margin_3">24dp</dimen>
+    <dimen name="margin_4">32dp</dimen>
+    <dimen name="margin_5">40dp</dimen>
+    <dimen name="margin_6">48dp</dimen>
+    <dimen name="margin_7">56dp</dimen>
+    <dimen name="margin_8">64dp</dimen>
+    <dimen name="margin_9">72dp</dimen>
+    <dimen name="margin_10">80dp</dimen>
+    <dimen name="margin_11">88dp</dimen>
+    <dimen name="margin_12">96dp</dimen>
+    <dimen name="margin_13">104dp</dimen>
+    <dimen name="margin_14">112dp</dimen>
+    <dimen name="margin_15">120dp</dimen>
+    <dimen name="margin_16">128dp</dimen>
+    <dimen name="margin_17">136dp</dimen>
+    <dimen name="margin_18">144dp</dimen>
+
+    <!-- Text Sizes -->
+    <dimen name="text_size_xx_small">10sp</dimen>
+    <dimen name="text_size_extra_small">12sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_normal">16sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_extra_large">24sp</dimen>
+
+    <dimen name="progress_bar_size">64dp</dimen>
+
+</resources>
