@@ -34,6 +34,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(":shared")
 
     //android values
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin"
@@ -44,24 +45,13 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$versions.recyclerview"
     implementation "androidx.constraintlayout:constraintlayout:$versions.constraintLayout"
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation "android.arch.paging:runtime:$versions.paging"
     implementation "androidx.lifecycle:lifecycle-extensions:$versions.lifecycleExtensions"
     implementation "androidx.lifecycle:lifecycle-runtime:$versions.lifecycle"
     implementation "androidx.paging:paging-runtime:$versions.paging"
     implementation "androidx.annotation:annotation:$versions.supportLibrary"
-    implementation "android.arch.navigation:navigation-fragment-ktx:$versions.navigationFragment"
-    implementation "android.arch.navigation:navigation-ui-ktx:$versions.navigationFragment"
     implementation "androidx.lifecycle:lifecycle-livedata:$versions.lifecycleExtensions"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutine"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutine"
-    implementation "android.arch.work:work-runtime:$versions.archwork"
-
-    //Room
-    implementation "androidx.room:room-runtime:$versions.room"
-    implementation "androidx.room:room-ktx:$versions.room"
-    kapt "androidx.room:room-compiler:$versions.room"
-    implementation "androidx.room:room-rxjava2:$versions.room"
-    androidTestImplementation "androidx.room:room-testing:$versions.room"
 
     //3rd party
     implementation "com.squareup.picasso:picasso:$versions.picasso"
