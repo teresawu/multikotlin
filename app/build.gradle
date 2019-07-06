@@ -1,86 +1,41 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
 
-kapt {
-    generateStubs = true
-}
+
 
 android {
-    compileSdkVersion versions.compileVersion
+    compileSdkVersion 28
     defaultConfig {
-        applicationId versions.appId
-        minSdkVersion versions.minVersion
-        versionCode versions.versionCode
-        versionName versions.versionName
-        multiDexEnabled true
-        vectorDrawables.useSupportLibrary = true
-        dexOptions {
-            javaMaxHeapSize "4g"
-        }
+        applicationId "uk.co.sample.multi"
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    }
-    dataBinding {
-        enabled = true
     }
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-}
 
+    packagingOptions {
+        exclude 'META-INF/*.kotlin_module'
+    }
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(":shared")
 
-    //android values
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin"
-    implementation "org.jetbrains.kotlin:kotlin-android-extensions-runtime:$versions.kotlin"
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.40"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1'
+    implementation 'io.ktor:ktor-client-okhttp:1.0.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
+
     implementation "androidx.appcompat:appcompat:$versions.supportLibrary"
-    implementation "androidx.legacy:legacy-support-v4:$versions.legacySupport"
-    implementation "com.google.android.material:material:$versions.material"
-    implementation "androidx.recyclerview:recyclerview:$versions.recyclerview"
     implementation "androidx.constraintlayout:constraintlayout:$versions.constraintLayout"
-    implementation 'androidx.cardview:cardview:1.0.0'
-    implementation "androidx.lifecycle:lifecycle-extensions:$versions.lifecycleExtensions"
-    implementation "androidx.lifecycle:lifecycle-runtime:$versions.lifecycle"
-    implementation "androidx.paging:paging-runtime:$versions.paging"
-    implementation "androidx.annotation:annotation:$versions.supportLibrary"
-    implementation "androidx.lifecycle:lifecycle-livedata:$versions.lifecycleExtensions"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutine"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutine"
-
-    //3rd party
-    implementation "com.squareup.picasso:picasso:$versions.picasso"
-    implementation "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
-    implementation "io.reactivex.rxjava2:rxkotlin:$versions.rxkotlin"
-    implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
-    implementation "com.squareup.retrofit2:converter-gson:$versions.retrofit"
-    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$versions.retrofitRx"
-    implementation "com.squareup.okhttp3:logging-interceptor:$versions.okhttp"
-    implementation "com.google.code.gson:gson:$versions.gson"
-
-    //Koin
-    implementation "org.koin:koin-android:$versions.koin"
-    implementation "org.koin:koin-androidx-scope:$versions.koin"
-    implementation "org.koin:koin-androidx-viewmodel:$versions.koin"
-
-    //test
-    testImplementation "junit:junit:$versions.junit"
-    testImplementation "org.mockito:mockito-inline:$versions.mockitoInline"
-
-    testImplementation "org.koin:koin-test:$versions.koinTest"
-    testImplementation "androidx.test:runner:$versions.androidRunner"
-    testImplementation "androidx.test:rules:$versions.androidRunner"
-    testImplementation "androidx.test.espresso:espresso-core:$versions.espressoCore"
-    testImplementation "androidx.test.espresso:espresso-contrib:$versions.espressoCore"
-    testImplementation "androidx.arch.core:core-testing:$versions.androidCoreTesting"
-    testImplementation "org.mockito:mockito-core:$versions.mockitoCore"
-    testImplementation "org.mockito:mockito-android:$versions.mockitoCore"
-    testImplementation "androidx.fragment:fragment-testing:$versions.fragmentTesting"
-    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockitokotlin"
 
 }

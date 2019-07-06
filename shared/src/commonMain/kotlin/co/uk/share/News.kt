@@ -1,11 +1,15 @@
 package co.uk.share
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class NewsList(
     val articles: ArrayList<Article> = arrayListOf(),
     val status: String = "",
     val totalResults: Int = 0
 )
 
+@Serializable
 data class Article(
     val author: String = "",
     val content: String = "",
@@ -17,6 +21,7 @@ data class Article(
     val urlToImage: String = ""
 )
 
+@Serializable
 data class Source(
     val id: String = "",
     val name: String = ""
