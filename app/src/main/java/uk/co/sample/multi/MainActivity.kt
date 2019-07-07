@@ -3,6 +3,7 @@ package uk.co.sample.multi
 import android.app.Activity
 import android.os.Bundle
 import co.uk.share.ServiceApi
+import co.uk.share.providePlatform
 import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.engine.okhttp.OkHttpConfig
 import io.ktor.client.engine.okhttp.OkHttpEngine
@@ -24,7 +25,7 @@ class MainActivity : Activity(), CoroutineScope {
         launch(Dispatchers.Main) {
             try {
                 val result = withContext(Dispatchers.IO) { serviceApi.fetchData() }
-                textView.text = result
+                textView.text = providePlatform() + "\n" + "\n" + result
             } catch (e: Exception) {
             }
         }

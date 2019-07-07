@@ -3,7 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 
-
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -25,6 +24,7 @@ android {
         exclude 'META-INF/*.kotlin_module'
     }
 }
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(":shared")
@@ -35,7 +35,6 @@ dependencies {
     implementation 'io.ktor:ktor-client-okhttp:1.0.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
 
-    implementation "androidx.appcompat:appcompat:$versions.supportLibrary"
-    implementation "androidx.constraintlayout:constraintlayout:$versions.constraintLayout"
-
+    implementation "androidx.appcompat:appcompat:1.0.2"
+    implementation "androidx.constraintlayout:constraintlayout:1.1.3"
 }
