@@ -3,9 +3,10 @@ apply plugin: 'kotlin-multiplatform'
 apply plugin: 'kotlinx-serialization'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         minSdkVersion 23
+        targetSdkVersion 29
     }
     buildTypes {
         release {
@@ -68,22 +69,6 @@ kotlin {
         }
     }
 }
-
-//task copyFramework {
-//    def buildType = project.findProperty("kotlin.build.type") ?: "DEBUG"
-//    dependsOn "link${buildType.toLowerCase().capitalize()}FrameworkIos"
-//
-//    doLast {
-//        def srcFile = kotlin.targets.ios.binaries.getFramework(buildType).outputFile
-//        def targetDir = getProperty("configuration.build.dir")
-//        copy {
-//            from srcFile.parent
-//            into targetDir
-//            include 'c/**'
-//            include 'greeting.framework.dSYM'
-//        }
-//    }
-//}
 
 configurations {
     compileClasspath
