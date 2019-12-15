@@ -19,7 +19,7 @@ repositories {
 android {
     compileSdkVersion 29
     defaultConfig {
-        applicationId 'sunday'
+        applicationId 'sunday.presentation'
         minSdkVersion 23
         targetSdkVersion 29
         versionCode 1

@@ -1,4 +1,4 @@
-package sunday.movie.data.data
+package sunday.movie.data.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
