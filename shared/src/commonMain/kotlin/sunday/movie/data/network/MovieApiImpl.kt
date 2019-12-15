@@ -8,6 +8,7 @@ import io.ktor.client.response.HttpResponse
 import io.ktor.client.response.readText
 import io.ktor.http.URLProtocol
 import kotlinx.serialization.json.Json
+import sunday.movie.data.data.Auth
 import sunday.movie.data.data.PopularMovieApiDTO
 
 
@@ -23,7 +24,7 @@ class MovieApiImpl(val httpClient: HttpClient) : MovieApi {
                 host = BASE_URL
                 encodedPath = "/discover/movie"
                 parameter("sort_by", "popularity.desc")
-                header(HEADER_AUTHORIZATION, Key.TOKEN.asBearerToken())
+                header(HEADER_AUTHORIZATION, Auth.TOKEN.asBearerToken())
             }
         }
 
