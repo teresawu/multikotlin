@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+kapt {
+    generateStubs = true
+}
+
+repositories {
+    google()
+    jcenter()
+    mavenCentral()
+    repositories {
+        maven { url "https://dl.bintray.com/soywiz/soywiz" }
+    }
+}
+
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId 'sunday'
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName '1.0'
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    packagingOptions {
+        // Ktor prevents the build otherwise
+        exclude 'META-INF/*.kotlin_module'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+}
+
+dependencies {
+    implementation "androidx.appcompat:appcompat:1.0.2"
+    implementation "androidx.recyclerview:recyclerview:1.0.0"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "androidx.cardview:cardview:1.0.0"
+
+    implementation "com.github.bumptech.glide:glide:4.9.0"
+}

@@ -1,19 +1,7 @@
-# Tide Android code test
+# Kotlin Multiplatform example project using TMDb
 
-## Description
+This is a Kotlin [Multiplatform project](https://kotlinlang.org/docs/reference/multiplatform.html) trying to share as much code as possible between Android and iOS, using the API from [TMDb](https://www.themoviedb.org/) and displays a list of movies retrieved from it.
 
-This is a sample code test, written in MVI pattern with: Koin, RxJava, MVI and Kotlin
+In particular, this project uses a Clean Architecture approach, sharing the complete `data` and `domain` layer, as also the `presenter` from the `presentation` layer. Each platform currently only implements the `View` interface and adds a native UI to visualize the data from the `presenter`.
 
-
-## Tasks
-
-1. Implement the VideoFragement using the endpoint provided in ApiService: getVideo
-2. Fix the bug on back pressing
-3. Implement Unit test and UI test
-
-
-## Target
-
-1. Clean Architecture
-2. Suggest ways to improve the project 
-3. Your code should be compilable 
+Read the full story [here](https://proandroiddev.com/clean-architecture-example-with-kotlin-multiplatform-c361bb283fd0). 
