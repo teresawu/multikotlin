@@ -5,5 +5,5 @@ data class Movie(
     val title: String,
     val popularity: Double,
     val posterPath: String,
-    val completePosterPath
+    val completePosterPath:String
 )

@@ -16,11 +16,11 @@ repositories {
 }
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 'android-Q'
     defaultConfig {
         applicationId 'de.moviesmpp'
         minSdkVersion 23
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName '1.0'
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
@@ -113,12 +113,9 @@ kotlin {
                 implementation kotlin('test')
                 implementation kotlin('test-junit')
                 implementation 'com.android.support.test:runner:1.0.2'
-
-                // actually not needed, see https://youtrack.jetbrains.com/issue/KT-31189
+                implementation "io.mockk:mockk:1.9.3"
                 implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:${versions.serialization}"
                 implementation "com.soywiz:klock-android:${versions.klock}"
-
-                implementation "io.mockk:mockk:1.9.3"
             }
         }
 
