@@ -82,13 +82,16 @@ kotlin {
                 implementation "com.soywiz:klock-metadata:${versions.klock}"
             }
         }
+
         commonTest {
             dependencies {
-                implementation kotlin('test-common')
-                implementation kotlin('test-annotations-common')
-                implementation "io.mockk:mockk:1.9.3"
+                implementation 'org.jetbrains.kotlin:kotlin-test-common'
+                implementation 'org.jetbrains.kotlin:kotlin-test-annotations-common'
+                implementation "io.ktor:ktor-client-mock:1.1.2"
+                implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:$versions.coroutines"
             }
         }
+
         androidMain {
             dependencies {
                 implementation kotlin('stdlib')
@@ -112,10 +115,15 @@ kotlin {
             dependencies {
                 implementation kotlin('test')
                 implementation kotlin('test-junit')
+                implementation kotlin('test-common')
+                implementation kotlin('test-annotations-common')
                 implementation 'com.android.support.test:runner:1.0.2'
                 implementation "io.mockk:mockk:1.9.3"
                 implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:${versions.serialization}"
                 implementation "com.soywiz:klock-android:${versions.klock}"
+                implementation "org.mockito:mockito-core:2.23.0"
+                implementation "io.ktor:ktor-client-mock-jvm:1.1.2"
+                implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:$versions.coroutines"
             }
         }
 
@@ -136,6 +144,12 @@ kotlin {
             }
         }
         iosTest {
+            dependencies {
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:${versions.serialization}"
+                implementation "io.ktor:ktor-client-mock-native:1.1.2"
+                implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-native:$versions.coroutines"
+
+            }
         }
     }
 }

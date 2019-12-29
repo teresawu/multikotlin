@@ -21,12 +21,4 @@ class JsonData {
             "            \"overview\": \"After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos' actions and restore order to the universe once and for all, no matter what consequences may be in store.\",\n" +
             "            \"poster_path\": \"/or06FN3Dka5tukK1e9sl16pB3iy.jpg\"\n" +
             "        }"
-
-     val popularMovieJson = "{\n" +
-            "    \"page\": 1,\n" +
-            "    \"total_results\": 412221,\n" +
-            "    \"total_pages\": 20612,\n" +
-            "    \"results\": [\n" +
-            "    ]\n" +
-            "}"
 }
