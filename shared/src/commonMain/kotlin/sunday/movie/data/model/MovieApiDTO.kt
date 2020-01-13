@@ -5,6 +5,14 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class MovieApiDTO(
+    val page: Int,
+    @SerialName("total_results") val totalResults: Int,
+    @SerialName("total_pages") val totalPages: Int,
+    val results: List<ItemApiDTO>
+)
+
+@Serializable
+data class ItemApiDTO(
     val popularity: Double,
     val id: Int,
     val video: Boolean,

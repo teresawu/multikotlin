@@ -1,5 +1,8 @@
 package sunday.movie.data.mapper
 
+import sunday.movie.domain.model.Item
+import sunday.movie.domain.model.Movie
+
 class JsonData {
     val movieJson = "{\n" +
             "            \"popularity\": 437.513,\n" +
@@ -21,4 +24,14 @@ class JsonData {
             "            \"overview\": \"After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos' actions and restore order to the universe once and for all, no matter what consequences may be in store.\",\n" +
             "            \"poster_path\": \"/or06FN3Dka5tukK1e9sl16pB3iy.jpg\"\n" +
             "        }"
+
+    val movie = Item(
+        id = 1,
+        title = "title",
+        popularity = 245.11,
+        posterPath = "/or06FN3Dka5tukK1e9sl16pB3iy.jpg",
+        completePosterPath = "https://image.tmdb.org/t/p/original/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
+    )
+
+    val popularMovies = Movie(1, listOf(movie))
 }

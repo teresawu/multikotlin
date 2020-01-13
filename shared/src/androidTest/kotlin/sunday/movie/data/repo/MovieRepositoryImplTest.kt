@@ -19,7 +19,12 @@ class MovieRepositoryImplTest {
         suspend {
             sut.getMovieModel().fold(
                 { left -> fail("Should return right but was left") },
-                { right -> assertEquals(MOVIE_POSTER_BASE_URL+right.posterPath, right.completePosterPath) })
+                { right ->
+                    assertEquals(
+                        MOVIE_POSTER_BASE_URL + right.results[0].posterPath
+                        , right.results[0].completePosterPath
+                    )
+                })
         }
     }
 }

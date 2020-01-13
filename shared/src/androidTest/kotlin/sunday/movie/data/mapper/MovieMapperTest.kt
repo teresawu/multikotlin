@@ -5,6 +5,7 @@ import io.mockk.mockk
 import kotlinx.serialization.UnstableDefault
 import kotlinx.serialization.json.Json
 import org.junit.Before
+import sunday.movie.data.model.ItemApiDTO
 import sunday.movie.data.model.MovieApiDTO
 import sunday.movie.domain.model.Movie
 import kotlin.test.Test
@@ -12,51 +13,34 @@ import kotlin.test.assertEquals
 
 @UnstableDefault
 class MovieMapperTest {
-    private val movieApiDTO = mockk<MovieApiDTO>()
+    private val popularMovieApiDTO = mockk<MovieApiDTO>()
     private val sut = MovieMapper()
-    private val TITLE = "Avengers: Endgame"
-    private val PATH = "/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
     private lateinit var movie: Movie
 
     @Before
     fun setUp() {
-        every { movieApiDTO.id } returns 1
-        every { movieApiDTO.title } returns ""
-        every { movieApiDTO.popularity } returns 1.0
-        every { movieApiDTO.posterPath } returns ""
-        movie = sut.map(movieApiDTO)
+        every { popularMovieApiDTO.totalPages } returns 10
+        every { popularMovieApiDTO.results } returns listOf()
+        movie = sut.map(popularMovieApiDTO)
     }
 
     @Test
-    fun returnEmptyTitleWhenNetworkTitleIsEmpty() {
-        assertEquals(movie.title, "")
-    }
-
-
-    @Test
-    fun returnTitleWhenNetworkTitleIsNotEmpty() {
-        every { movieApiDTO.title } returns TITLE
-        val result = sut.map(movieApiDTO)
-        assertEquals(result.title, TITLE)
+    fun returnTotalPage() {
+        assertEquals(movie.totalPages, 10)
     }
 
 
     @Test
-    fun returnEmptyPathWhenNetworkPathIsEmpty() {
-        assertEquals(movie.posterPath, "")
+    fun returnEmptyListWhenListIsNotSet() {
+        assertEquals(movie.results.size, 0)
     }
 
     @Test
-    fun returnPathWhenNetworkPathIsNotEmpty() {
-        every { movieApiDTO.posterPath } returns PATH
-        val result = sut.map(movieApiDTO)
-        assertEquals(result.posterPath, PATH)
-    }
-
-    @Test
-    fun parseMovieJsonToMovieApiDTO() {
-        val movieJson = Json.parse(MovieApiDTO.serializer(), JsonData().movieJson)
-        assertEquals("Avengers: Endgame", movieJson.title)
-        assertEquals(299534, movieJson.id)
+    fun returnMovieListWhenListIsSet() {
+        val movieJson = Json.parse(ItemApiDTO.serializer(), JsonData().movieJson)
+        every { popularMovieApiDTO.results } returns listOf(movieJson)
+        val result = sut.map(popularMovieApiDTO)
+        assertEquals(result.results.size, 1)
+        assertEquals(result.results[0].id, 299534)
     }
 }

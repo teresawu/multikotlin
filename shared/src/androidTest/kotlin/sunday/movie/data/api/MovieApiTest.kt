@@ -37,6 +37,6 @@ class MovieApiTest {
     fun movieIDShouldMatch() = runTest {
         sut.getMovies().fold(
             { left -> fail("Should return right but was left") },
-            { right -> assertEquals(299534, right.id) })
+            { right -> assertEquals(299534, right.results[0].id) })
     }
 }
